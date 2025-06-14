@@ -1,111 +1,93 @@
-# SpaceX Data API Lab
+# SpaceX Launch Site Visualization using Folium
 
-This repository contains a hands-on data engineering and data preprocessing lab focused on collecting and preparing data from the SpaceX public API and Wikipedia. The project is part of a Falcon 9 Launch Analysis and aims to enable further exploratory data analysis and machine learning workflows.
+This repository contains a geospatial data analysis and visualization project focused on SpaceX launch sites. Using Python and the Folium mapping library, the project visualizes launch site locations and evaluates their geographic proximity to critical infrastructure such as highways, railways, coastlines, and urban areas.
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Technologies Used](#technologies-used)
+- [Installation and Setup](#installation-and-setup)
+- [Project Structure](#project-structure)
+- [Key Visualizations](#key-visualizations)
+- [Insights and Analysis](#insights-and-analysis)
+- [Conclusion](#conclusion)
+- [License](#license)
+- [Author](#author)
 
 ## Overview
 
-The objective of this lab is to:
+The success and safety of aerospace missions are heavily influenced by the geographical attributes of launch sites. This project explores the spatial characteristics of SpaceX launch facilities to understand their placement strategies. The visualizations generated offer insight into why these locations were chosen and how they align with operational and logistical requirements.
 
-* Retrieve and parse launch data using the official SpaceX REST API.
-* Scrape supplementary launch data from Wikipedia for Falcon 9 and Falcon Heavy missions.
-* Structure, clean, and transform the data into Pandas DataFrames.
-* Prepare a consolidated dataset for analysis, visualization, or predictive modeling.
+## Technologies Used
 
-## Data Sources
+- Python 3.8+
+- Folium (for interactive map visualization)
+- Pandas (for data processing)
+- Geopy (for distance calculations)
+- Jupyter Notebook (for exploratory analysis and development)
 
-1. **SpaceX REST API (v5)**
-   Endpoint: `https://api.spacexdata.com/v5/launches`
-   Returns detailed metadata for each launch, including payloads, cores, launch sites, and success status.
-
-2. **Wikipedia Falcon Launch History**
-   Web-scraped using BeautifulSoup from:
-   [List of Falcon 9 and Falcon Heavy launches](https://en.wikipedia.org/wiki/List_of_Falcon_9_and_Falcon_Heavy_launches)
-   This data includes mission details, rocket types, outcomes, and launch dates.
-
-## Repository Contents
-
-```
-spacex-data-api-lab/
-│
-├── README.md                  # Project documentation
-├── spacex_data_lab.ipynb      # Jupyter notebook with step-by-step data collection
-└── spacex_data_collection.py  # Python script for API and web scraping operations
-```
-
-## Setup and Requirements
-
-Install required Python packages:
-
-```bash
-pip install requests pandas beautifulsoup4
-```
-
-Alternatively, set up a virtual environment:
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
-
-Create a `requirements.txt` file with the following contents if not present:
-
-```
-requests
-pandas
-beautifulsoup4
-```
-
-## How to Use
+## Installation and Setup
 
 1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/tiwariar7/spacex-launch-site-visualization.git
+   cd spacex-launch-site-visualization
+   ```
 
-```bash
-git clone https://github.com/tiwariar7/spacex-data-api-lab.git
-cd spacex-data-api-lab
+2. **Create and Activate a Virtual Environment (Optional)**
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install the Required Packages**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Launch the Notebook**
+
+   ```bash
+   jupyter notebook
+   ```
+
+   Open the provided `.ipynb` file and follow the step-by-step analysis.
+
+## Project Structure
+
+```
+spacex-launch-site-visualization/
+│
+├── SpaceX_Launch_Sites_Analysis.ipynb  # Main Jupyter Notebook
+├── requirements.txt                    # Python dependencies
+└── README.md                           # Project documentation
 ```
 
-2. **Run the Script or Notebook**
+## Key Visualizations
 
-* To run the script:
+* Interactive maps showing SpaceX launch site locations
+* Distance markers between launch sites and nearby infrastructure
+* Popups with detailed launch site information
+* Lines and circles showing proximity to:
 
-  ```bash
-  python spacex_data_collection.py
-  ```
+  * Railways
+  * Highways
+  * Coastlines
+  * Cities
 
-* To run interactively:
+## Insights and Analysis
 
-  ```bash
-  jupyter notebook spacex_data_lab.ipynb
-  ```
+* Launch sites are located near coastlines to ensure safety during rocket launches over open water.
+* Proximity to highways and railways suggests considerations for transportation and logistical support.
+* A deliberate distance from major urban centers aligns with safety protocols and risk mitigation.
+* Visual analysis confirms the strategic selection of launch sites based on geography and accessibility.
 
-3. **Output**
+## Conclusion
 
-Both API and Wikipedia data will be loaded into separate Pandas DataFrames. You may optionally export them as CSV files for future use.
-
-## Features
-
-* RESTful API data ingestion
-* HTML table scraping and parsing
-* Data cleanup, formatting, and normalization
-* Modular Python functions for reusable data collection workflows
-
-## Use Cases
-
-This lab is a foundational step for:
-
-* Predictive modeling (e.g., first-stage landing success)
-* Exploratory data analysis (e.g., launch trends, reuse frequency)
-* Building interactive dashboards or visual reports
-* Enriching datasets by combining structured and semi-structured sources
+This project demonstrates how spatial visualization can uncover meaningful insights in aerospace logistics. The integration of open-source mapping tools with geospatial data offers a powerful approach to infrastructure and operational planning analysis. The techniques applied here can be extended to other industries and use cases involving geolocation data.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
-## Acknowledgments
-
-* [SpaceX](https://github.com/r-spacex/SpaceX-API) for providing the public API.
-* Wikipedia contributors for maintaining an extensive launch history.
-
----
+This project is licensed under the [MIT License](LICENSE).
