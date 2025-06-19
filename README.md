@@ -55,16 +55,6 @@ The success and safety of aerospace missions are heavily influenced by the geogr
 
    Open the provided `.ipynb` file and follow the step-by-step analysis.
 
-## Project Structure
-
-```
-spacex-launch-site-visualization/
-│
-├── SpaceX_Launch_Sites_Analysis.ipynb  # Main Jupyter Notebook
-├── requirements.txt                    # Python dependencies
-└── README.md                           # Project documentation
-```
-
 ## Key Visualizations
 
 * Interactive maps showing SpaceX launch site locations
