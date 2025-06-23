@@ -67,16 +67,9 @@ The success and safety of aerospace missions are heavily influenced by the geogr
   * Coastlines
   * Cities
 
-## Insights and Analysis
 
-* Launch sites are located near coastlines to ensure safety during rocket launches over open water.
-* Proximity to highways and railways suggests considerations for transportation and logistical support.
-* A deliberate distance from major urban centers aligns with safety protocols and risk mitigation.
-* Visual analysis confirms the strategic selection of launch sites based on geography and accessibility.
 
-## Conclusion
 
-This project demonstrates how spatial visualization can uncover meaningful insights in aerospace logistics. The integration of open-source mapping tools with geospatial data offers a powerful approach to infrastructure and operational planning analysis. The techniques applied here can be extended to other industries and use cases involving geolocation data.
 
 ## License
 
