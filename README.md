@@ -1,83 +1,86 @@
-# SpaceX Launch Site Visualization using Folium
+# SpaceX Launch Prediction Dashboard
 
-This repository contains a geospatial data analysis and visualization project focused on SpaceX launch sites. Using Python and the Folium mapping library, the project visualizes launch site locations and evaluates their geographic proximity to critical infrastructure such as highways, railways, coastlines, and urban areas.
+A full-stack application for analyzing SpaceX launch data and predicting launch success using machine learning.
 
-## Table of Contents
+## Project Structure
 
-- [Overview](#overview)
-- [Technologies Used](#technologies-used)
-- [Installation and Setup](#installation-and-setup)
-- [Project Structure](#project-structure)
-- [Key Visualizations](#key-visualizations)
-- [Insights and Analysis](#insights-and-analysis)
-- [Conclusion](#conclusion)
-- [License](#license)
-- [Author](#author)
+- **Flask-Backend/**: Python Flask API with ML model
+- **Next-Frontend/**: React/TypeScript frontend with interactive visualizations
+- **Notebooks/**: Jupyter notebooks for data analysis and model training
 
-## Overview
+## Quick Start
 
-The success and safety of aerospace missions are heavily influenced by the geographical attributes of launch sites. This project explores the spatial characteristics of SpaceX launch facilities to understand their placement strategies. The visualizations generated offer insight into why these locations were chosen and how they align with operational and logistical requirements.
+### 1. Start the Flask Backend
+
+```bash
+cd Flask-Backend
+pip install -r requirements.txt
+python app.py
+```
+
+The backend will run on `http://localhost:5000`
+
+### 2. Start the Next.js Frontend
+
+In a new terminal:
+
+```bash
+cd Next-Frontend
+npm install
+npm run dev
+```
+
+The frontend will run on `http://localhost:5173`
+
+### 3. Access the Application
+
+Open your browser and navigate to `http://localhost:5173` to see the dashboard.
+
+## Features
+
+- **Interactive Dashboard**: Filter and visualize SpaceX launch data
+- **Machine Learning Predictions**: Real-time launch success predictions
+- **Data Visualization**: Pie charts and scatter plots
+- **Historical Analysis**: Complete SpaceX launch history
+
+## API Endpoints
+
+- `GET /health` - Health check
+- `GET /launches` - Get all launch data
+- `POST /predict` - Make launch predictions
 
 ## Technologies Used
 
-- Python 3.8+
-- Folium (for interactive map visualization)
-- Pandas (for data processing)
-- Geopy (for distance calculations)
-- Jupyter Notebook (for exploratory analysis and development)
+- **Backend**: Flask, scikit-learn, pandas
+- **Frontend**: React, TypeScript, Vite, Tailwind CSS
+- **Visualization**: Chart.js
+- **ML Model**: Trained on SpaceX historical data
 
-## Installation and Setup
+## Data Sources
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/tiwariar7/spacex-launch-site-visualization.git
-   cd spacex-launch-site-visualization
-   ```
+The application uses the SpaceX launch dataset containing:
+- Launch success/failure data
+- Payload mass information
+- Launch site details
+- Booster version information
+- Historical flight data
 
-2. **Create and Activate a Virtual Environment (Optional)**
+## Development
 
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+### Backend Development
+- Located in `Flask-Backend/`
+- Uses the trained model from `ML-Model/spacex_model.pkl`
+- Serves data from `ML-Model/datasets/spacex_launch_dataset.csv`
 
-3. **Install the Required Packages**
+### Frontend Development
+- Located in `Next-Frontend/`
+- Built with Vite for fast development
+- Uses TypeScript for type safety
+- Responsive design with Tailwind CSS
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+## Troubleshooting
 
-4. **Launch the Notebook**
-
-   ```bash
-   jupyter notebook
-   ```
-
-   Open the provided `.ipynb` file and follow the step-by-step analysis.
-
-## Key Visualizations
-
-* Interactive maps showing SpaceX launch site locations
-* Distance markers between launch sites and nearby infrastructure
-* Popups with detailed launch site information
-* Lines and circles showing proximity to:
-
-  * Railways
-  * Highways
-  * Coastlines
-  * Cities
-
-## Insights and Analysis
-
-* Launch sites are located near coastlines to ensure safety during rocket launches over open water.
-* Proximity to highways and railways suggests considerations for transportation and logistical support.
-* A deliberate distance from major urban centers aligns with safety protocols and risk mitigation.
-* Visual analysis confirms the strategic selection of launch sites based on geography and accessibility.
-
-## Conclusion
-
-This project demonstrates how spatial visualization can uncover meaningful insights in aerospace logistics. The integration of open-source mapping tools with geospatial data offers a powerful approach to infrastructure and operational planning analysis. The techniques applied here can be extended to other industries and use cases involving geolocation data.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+1. **Backend won't start**: Make sure all Python dependencies are installed
+2. **Frontend can't connect to backend**: Ensure the Flask server is running on port 5000
+3. **CORS errors**: The backend has CORS enabled, but check if the frontend is making requests to the correct URL
+4. **ML model errors**: Verify that `spacex_model.pkl` exists in the ML-Model directory
